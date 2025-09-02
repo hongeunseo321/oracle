@@ -169,7 +169,7 @@ public class EmpDAO {
 			// 오라클은 데이터가 대소문자 구분 => EMP의 모든 데이터가 대문자
 			String sql="SELECT empno,ename,job,TO_CHAR(hiredate,'YYYY-MM-DD'),sal "
 					+"FROM emp "
-					+"WHERE ename LIKE '%"+ename.toUpperCase()+"%' " // '%'||?||'%'도 가능
+					+"WHERE ename LIKE '%"+ename.toUpperCase()+"%' " // '%'||?||'%'이 더 안전
 					+"ORDER BY sal DESC";
 			// 3. 오라클로 전송
 			ps=conn.prepareStatement(sql);
