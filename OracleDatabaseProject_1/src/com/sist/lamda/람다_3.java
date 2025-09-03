@@ -13,7 +13,7 @@ package com.sist.lamda;
  */
 import java.util.*;
 public class 람다_3 {
- 
+  
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		List<String> names=Arrays.asList("박문수","홍길동","이순신","홍감찬","을지문덕");
