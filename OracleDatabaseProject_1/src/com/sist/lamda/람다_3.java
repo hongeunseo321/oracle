@@ -21,6 +21,7 @@ public class 람다_3 {
 //		names.stream().filter(name->name.startsWith("홍"))
 //		.forEach(System.out::println);
 		
+		
 		names.forEach(name->System.out.println(name));
 	}
 
