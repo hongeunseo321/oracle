@@ -30,11 +30,15 @@ interface MyCalc
  *  부서별 평균
  *  직위별 최고 급여
  *  가장 높은 급여
- *  -------------- SQL
+ *  ------------------------------------ SQL
  *  조건 : filter(vo -> vo.getSal()>=2000)
  *  출력 형식 : map(EmpVO::getEname)
  *  여러 개 출력 : forEach
  *  정렬 : sorted(EmpVO::getSal)
+ *  ------------------------------------
+ *   -> 함수 포인터 => lambda : x+y
+ *   JWT => Spring-Boot : 카카로 / 네이버...
+ *   --- 쿠키 기반
  */
 public class LambdaMain2 {
 
