@@ -24,6 +24,17 @@ interface MyCalc
  *  => Stream 지원 => Collection을 제어하기 편하다
  *  => 가독성이 떨어진다
  *  => 복잡한 로직에는 사용 금지
+ *  
+ *  전체 사원 출력
+ *  급여가 2000 이상
+ *  부서별 평균
+ *  직위별 최고 급여
+ *  가장 높은 급여
+ *  -------------- SQL
+ *  조건 : filter(vo -> vo.getSal()>=2000)
+ *  출력 형식 : map(EmpVO::getEname)
+ *  여러 개 출력 : forEach
+ *  정렬 : sorted(EmpVO::getSal)
  */
 public class LambdaMain2 {
 
