@@ -63,7 +63,7 @@ implements ActionListener
 		}
 		else if(e.getSource()==login.b2)
 		{
-			login.setVisible(false);
+			login.setVisible(false); 
 			join.setVisible(true);
 		}
 		else if(e.getSource()==login.b3)
