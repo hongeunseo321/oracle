@@ -58,7 +58,7 @@ implements ActionListener
 			cp.card.show(cp, "CF");
 		}
 		else if(e.getSource()==menu.b3)
-		{
+		{ 
 			cp.card.show(cp, "BF");
 		}
 		else if(e.getSource()==login.b2)
