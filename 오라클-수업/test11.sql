@@ -2,7 +2,7 @@
 /*
 	GROUP BY : 데이터 그룹별로 묶어서 집계 = 관리자 모드
 	JOIN : 여러 개 테이블을 연결해서 필요한 데이터를 추출
-                 --------------- 정규화 => 테이블이 많이 나눠진다
+           ------------- 정규화 => 테이블이 많이 나눠진다
 		 => 데이터 추출
 
 	SUBQUERY : 여러 개의 SQL을 한 개의 SQL문장으로 변경
@@ -11,7 +11,7 @@
 		WHERE 뒤 => 서브쿼리 (조건값 대신)
 
 	1. GROUP BY => 159page
-	   ------------
+	   --------
 	   같은 값을 가진 컬럼을 묶어서 따로 통계
 		통계 => 집합함수를 이용
 		=> COUNT / MAX / MIN / SUM / AVG
@@ -22,11 +22,11 @@
 			3) 그룹으로 지정된 컬럼 외의 다른 컬럼을 사용할 수 없다 
 		
 		실행 순서
-			SELECT ------ 4
-			FROM --------1
+			SELECT ---- 4
+			FROM ------ 1
 			GROUP BY -- 2
-			HAVING ----- 3
-			ORDER BY --- 5
+			HAVING ---- 3
+			ORDER BY -- 5
 
 		=> 컬럼값 중에 같은 값을 가지고 있는 값을 찾아서 그룹화
 			예)
@@ -116,9 +116,9 @@ HAVING COUNT(*)>=4;
 
 /*
 	159page
-	---------
+	-------
 	GROUP BY에서 사용하는 함수 => 집계 함수 (CUBE / ROLLUP...)
-	------------ MIN / MAX / COUNT / AVG / SUM
+	-------- MIN / MAX / COUNT / AVG / SUM
 	 |같은 값을 가지고 있는 컬럼 / 함수
 
 	주의점 / 실행 순서 (161page)
@@ -150,7 +150,7 @@ ORDER BY TO_CHAR(hiredate,'yyyy') ASC;
 /*
 	교재에서 사용하는 테이블
 	orders : 구매내역, book : 책정보, customer : 회원 정보
-	-------
+	------
 		ORDERID => 구매번호 => 중복 없는 데이터 (PRIMARY KEY)
 		CUSTID => 회원 ID
 		BOOKID => 책 번호

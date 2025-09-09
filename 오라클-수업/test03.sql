@@ -32,8 +32,8 @@
 
 		1) 형식
 			=> 테이블 정보 : 컬럼 확인
-						----- 자바의 VO와 동일
-						 DESC table명;
+						    ---- 자바의 VO와 동일
+						    DESC table명;
  			emp
 			EMPNO NUMBER(4) => 정수
 			ENAME VARCHAR2 => 문자열
@@ -93,20 +93,20 @@
 						__A%, _B_
 
 			1. 산술연산자 => 조건문에 사용할 수 없다	
-			   ------------ SELECT (통계=평균,총합)
+			   --------- SELECT (통계=평균,총합)
 			2. 나머지 => WHERE 뒤에 사용
 			3. 형식
 				SELECT
 				FROM
 				WHERE 컬럼명 연산자 값
-					  ------------------- true일 경우에만 출력			
+					  --------------- true일 경우에만 출력			
 			4. 순서
-				SELECT      -- 6
+				SELECT     -- 6
 				FROM       -- 1
 				WHERE      -- 2	
-				GROUP BY  -- 3
+				GROUP BY   -- 3
 				HAVING     -- 4
-				ORDER BY  -- 5
+				ORDER BY   -- 5
 */
 /*
 -- 1. emp(사원정보)에 있는 모든 사원들을 출력 (*은 가독성이 떨어진다) => 상세 보기
