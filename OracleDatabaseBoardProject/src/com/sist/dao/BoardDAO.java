@@ -140,6 +140,28 @@ public class BoardDAO {
 		return count;
 	}
 	// 2. 추가 : INSERT => SEQUENCE 사용
+	public void boardInsert(BoardVO vo)
+	{
+		try
+		{
+			getConnection();
+			String sql="INSERT INTO board(no,name,subject,content,pwd) "
+					+ "VALUES(board_no_seq.nextval,?,?,?,?)";
+			ps=conn.prepareStatement(sql);
+			ps.setString(1, vo.getName());
+			ps.setString(2, vo.getSubject());
+			ps.setString(3, vo.getContent());
+			ps.setString(4, vo.getPwd());
+			ps.executeUpdate();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+	}
 	// 3. 상세보기 : SELECT => 조건
 	// 4. 수정 : UPDATE 
 	// 5. 삭제 : DELETE
