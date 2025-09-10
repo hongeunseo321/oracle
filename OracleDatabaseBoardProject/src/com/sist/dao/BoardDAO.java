@@ -163,6 +163,30 @@ public class BoardDAO {
 		}
 	}
 	// 3. 상세보기 : SELECT => 조건
+	public BoardVO boardDetailData(int no)
+	{
+		BoardVO vo=new BoardVO(); // 게시물 한 개에 대한 모든 정보
+		try
+		{
+			getConnection();
+			String sql="UPDATE board SET "
+					+ "hit=hit+1 "
+					+ "WHERE no=?"; // ip가 아닌 새로고침으로 조회수 증가
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			ps.executeUpdate();
+			
+			// 데이터 읽기
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return vo;
+	}
 	// 4. 수정 : UPDATE 
 	// 5. 삭제 : DELETE
 	// 6. 검색 : SELECT => LIKE / REGEXP_LIKE

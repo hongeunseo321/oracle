@@ -104,7 +104,7 @@ public class BoardList extends JPanel implements ActionListener{
 		{
 			model.removeRow(i);
 		}
-		// 2. 데이터베이스 값 가져오기
+		// 2. 데이터베이스 값 가져오기 
 		BoardDAO dao=BoardDAO.newInstance();
 		List<BoardVO> list=dao.boardListData(curpage);
 		int count=dao.boardRowCount();

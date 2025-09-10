@@ -1,12 +1,12 @@
 /*
 Oracle = JDBC = *Connection Pool* => *MyBatis = *JPA
-                                |
+                        |
 JavaScript = Jquery = Ajax = *Vue = React = Next
--------------------               ---- Spring 연결
+-------------------          ---- Spring 연결
  = NodeJS / *TypeScript
-    ------- TypeORM
+   ------ TypeORM
 SpringFrame = Spring-Boot(어노테이션 기반)
-------------
+-----------
  = CI / CD = Git Action / Docker => *쿠버네티스 = *젠킨스
 */
 
@@ -77,7 +77,7 @@ SpringFrame = Spring-Boot(어노테이션 기반)
 					IS NULL / IS NOT NULL
 
 			2. 내장 함수
-			   ----------
+			   --------
 				*** 집계 함수, 단일형 함수는 같이 사용할 수 없다
 				*** 같이 사용하려면 GROUP BY를 사용한다
 
@@ -144,8 +144,8 @@ SpringFrame = Spring-Boot(어노테이션 기반)
 				집계 함수
 					COUNT : ROW의 개수
 						COUNT(*) / COUNT(컬럼)
-						      |                  |
-						NULL포함      NULL제외
+						    |          |
+						NULL포함    NULL제외
 
 						=> 예) 로그인, 아이디 찾기, 장바구니 개수, 검색 건수...
 
@@ -216,7 +216,7 @@ SpringFrame = Spring-Boot(어노테이션 기반)
 		서브 쿼리 : 쿼리 안에 다른 쿼리 문장 추가
 			=> 여러 개의 SQL문장을 한 개로 연결
 			=> MainQuery 연산자 (서브쿼리)
-						    --------- 실행 => 결괏값 MainQuery
+						        --------- 실행 => 결괏값 MainQuery
 
 			=> SQL만으로 복잡한 연산 처리할 때 사용
 			=> 쿼리를 단계별로 나눠서 작성 => 가독성이 좋다
@@ -237,7 +237,7 @@ SpringFrame = Spring-Boot(어노테이션 기반)
 
 				WHERE 뒤 : 조건값
 					=> 서브쿼리
-					     --------
+					   -------
 						1. 단일행 서브쿼리 => 컬럼 1개
 							비교 연산자
 
@@ -276,6 +276,7 @@ SpringFrame = Spring-Boot(어노테이션 기반)
 								WHERE sal<(SELECT AVG(sal) FROM emp)
 												|1. 실행
 								=> MainQuery 실행
+								-----------------------------------
 */
 set linesize 250 
 set pagesize 25
