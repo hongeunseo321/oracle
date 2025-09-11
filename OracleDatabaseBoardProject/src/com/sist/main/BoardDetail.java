@@ -2,6 +2,9 @@ package com.sist.main;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+
+import com.sist.dao.BoardDAO;
+import com.sist.vo.BoardVO;
 public class BoardDetail extends JPanel implements ActionListener{
 	JLabel la1,la2,la3,la4,la5,la6;
 	JLabel la_p1,la_p2,la_p3,la_p4,la_p5;
@@ -14,7 +17,7 @@ public class BoardDetail extends JPanel implements ActionListener{
 	JPasswordField pf;
 	JButton b4;
 	JPanel pan=new JPanel();
-	boolean bCheck=true; // 삭제 버튼 한 번 더 누르면 삭제창이 다시 사라지게
+	boolean bCheck=false; // 삭제 버튼 한 번 더 누르면 삭제창이 다시 사라지게
 	
 	public BoardDetail(BoardMainFrame bm)
 	{
@@ -104,5 +107,56 @@ public class BoardDetail extends JPanel implements ActionListener{
 				pan.setVisible(false);
 			}
 		}
+		else if(e.getSource()==b3) 
+		{
+			bm.card.show(bm.getContentPane(), "list");
+			bm.bList.print(); // 같은 창이라서 갱신 X => 조회수 증가 출력 
+		}
+		else if(e.getSource()==b4) // 삭제 버튼
+		{
+			String pwd=String.valueOf(pf.getPassword());
+			if(pwd.trim().length()<1)
+			{
+				JOptionPane.showMessageDialog(this, "비밀번호를 입력하세요");
+				pf.requestFocus();
+				return;
+			}
+			
+			String no=la_p1.getText();
+			BoardDAO dao=BoardDAO.newInstance();
+			boolean bCheck=dao.boardDelete(Integer.parseInt(no), pwd);
+			if(bCheck==true) // 삭제 버튼
+			{
+				bm.card.show(bm.getContentPane(), "list");
+				pf.setText("");
+				pan.setVisible(false);
+				bCheck=true;
+				b2.setText("삭제");
+				bm.bList.print();
+			}
+			else // 비밀번호 틀린 상태
+			{
+				JOptionPane.showMessageDialog(this, "잘못된 비밀번호입니다");
+				pf.setText("");
+				pf.requestFocus();
+			}
+		}
+		else if(e.getSource()==b1) // 수정 버튼
+		{
+			String no=la_p1.getText();
+			bm.card.show(bm.getContentPane(), "update");
+			bm.bUpdate.print(Integer.parseInt(no));
+		}
+	}
+	public void print(int no)
+	{
+		BoardDAO dao=BoardDAO.newInstance();
+		BoardVO vo=dao.boardDetailData(no);
+		la_p1.setText(String.valueOf(vo.getNo()));
+		la_p2.setText(vo.getDbday());
+		la_p3.setText(vo.getName());
+		la_p4.setText(String.valueOf(vo.getHit()));
+		la_p5.setText(vo.getSubject());
+		ta.setText(vo.getContent());
 	}
 }
