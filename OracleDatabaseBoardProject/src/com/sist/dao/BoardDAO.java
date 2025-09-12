@@ -114,7 +114,7 @@ public class BoardDAO {
 		}
 		return list;
 	}
-	// 1-1 총페이지
+	// 1-1. 총페이지
 	// 61(X)     ==>  63 62 60
 	// 63 => 62  ==>  62 61...
 	public int boardRowCount()
