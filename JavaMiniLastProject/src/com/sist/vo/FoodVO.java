@@ -3,7 +3,7 @@ package com.sist.vo;
 import lombok.Data;
 
 /*
- *      FNO     NOT NULL NUMBER        
+        FNO     NOT NULL NUMBER        
 		NAME    NOT NULL VARCHAR2(200) 
 		TYPE    NOT NULL VARCHAR2(100) 
 		PHONE            VARCHAR2(20)  

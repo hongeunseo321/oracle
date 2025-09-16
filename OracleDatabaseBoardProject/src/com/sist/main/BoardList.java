@@ -46,12 +46,12 @@ public class BoardList extends JPanel implements ActionListener,MouseListener{
 		
 		for(int i=0;i<col.length;i++) 
 		{
-			DefaultTableCellRenderer rand=new DefaultTableCellRenderer();
+			DefaultTableCellRenderer rend=new DefaultTableCellRenderer();
 			column=table.getColumnModel().getColumn(i);
 			if(i==0)
 			{
 				column.setPreferredWidth(35);
-				rand.setHorizontalAlignment(JLabel.CENTER);
+				rend.setHorizontalAlignment(JLabel.CENTER);
 			}
 			else if(i==1)
 			{
@@ -64,19 +64,19 @@ public class BoardList extends JPanel implements ActionListener,MouseListener{
 			else if(i==3)
 			{
 				column.setPreferredWidth(100);
-				rand.setHorizontalAlignment(JLabel.CENTER);
+				rend.setHorizontalAlignment(JLabel.CENTER);
 			}
 			else if(i==4)
 			{
 				column.setPreferredWidth(100);
-				rand.setHorizontalAlignment(JLabel.CENTER);
+				rend.setHorizontalAlignment(JLabel.CENTER);
 			}
 			else if(i==5)
 			{
 				column.setPreferredWidth(50);
-				rand.setHorizontalAlignment(JLabel.CENTER);
+				rend.setHorizontalAlignment(JLabel.CENTER);
 			}
-			column.setCellRenderer(rand);
+			column.setCellRenderer(rend);
 		}
 		table.getTableHeader().setReorderingAllowed(false);
 		table.getTableHeader().setResizingAllowed(false);
