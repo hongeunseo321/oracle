@@ -44,6 +44,11 @@ implements ActionListener
     	
     	join.b1.addActionListener(this); // 회원가입 
     	join.b2.addActionListener(this); // 취소 
+    	
+    	genie.addActionListener(this);
+    	
+    	// textfield / button / menuitem => ActionListener
+    	// table / label / image / panel => MouseListener
     }
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -95,6 +100,10 @@ implements ActionListener
 		{
 			login.setVisible(true);
 			join.setVisible(false);
+		}
+		else if(e.getSource()==genie)
+		{
+			cp.card.show(cp, "GM");
 		}
 	}
 
