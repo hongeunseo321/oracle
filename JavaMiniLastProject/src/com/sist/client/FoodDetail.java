@@ -9,6 +9,7 @@ import javax.swing.border.LineBorder;
 import com.sist.commons.ImageChange;
 import com.sist.dao.FoodDAO;
 import com.sist.vo.FoodVO;
+import com.sist.vo.JjimVO;
 public class FoodDetail extends JPanel implements ActionListener{
 	ControllerPanel cp;
 	JLabel mainLa;
@@ -17,6 +18,7 @@ public class FoodDetail extends JPanel implements ActionListener{
 	JTextPane ta; // 자동 줄바꿈
 	JButton b1,b2,b3;
 	static int type=0;
+	int fno=0;
 	public FoodDetail(ControllerPanel cp)
 	{
 		setLayout(null);
@@ -50,6 +52,7 @@ public class FoodDetail extends JPanel implements ActionListener{
 		add(p);
 		
 		b3.addActionListener(this);
+		b1.addActionListener(this);
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -68,9 +71,23 @@ public class FoodDetail extends JPanel implements ActionListener{
 				cp.ff.print();
 			}
 		}
+		else if(e.getSource()==b1)
+		{
+			FoodDAO dao=FoodDAO.newInstance();
+			JjimVO vo=new JjimVO();
+			vo.setFno(fno);
+			vo.setId(cp.myId);
+			int res=dao.jjimInsert(vo);
+			if(res>0)
+			{
+				JOptionPane.showMessageDialog(this, "찜 완료♥");
+				print(fno);
+			}
+		}
 	}
 	public void print(int fno)
 	{
+		this.fno=fno;
 		FoodDAO dao=FoodDAO.newInstance();
 		FoodVO vo=dao.foodDetailData(fno);
 		lap[0].setText(vo.getName());
@@ -89,5 +106,14 @@ public class FoodDetail extends JPanel implements ActionListener{
 			Image img=ImageChange.getImage(new ImageIcon(url), 300, 350);
 			mainLa.setIcon(new ImageIcon(img));
 		}catch(Exception ex) {}
+		int count=dao.jjimCheck(fno, cp.myId);
+		if(count==0)
+		{
+			b1.setEnabled(true);
+		}
+		else
+		{
+			b1.setEnabled(false);
+		}
 	}
 }

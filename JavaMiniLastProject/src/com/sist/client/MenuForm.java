@@ -8,7 +8,7 @@ public class MenuForm extends JPanel{
    JButton b4=new JButton("빠른 예약");
    JButton b5=new JButton("실시간 채팅");
    JButton b6=new JButton("게시판");
-   JButton b7=new JButton("실시간 동영상");
+   JButton b7=new JButton("실시간뉴스");
    
    public MenuForm()
    {
